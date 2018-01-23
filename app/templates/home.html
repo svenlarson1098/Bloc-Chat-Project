@@ -1,14 +1,15 @@
 <h1>Bloc Chat Home Room</h1>
 
 <section>
+    <div ng-controller='ModalCtrl as modal'>
+        <button type="button" class="btn btn-default" ng-click="modal.open()">New room</button>
+    </div>
 
     <div ng-repeat="room in home.rooms">
 
       {{ room.$value }}
 
-      <div ng-controller='ModalCtrl as modal'>
-          <button type="button" class="btn btn-default" ng-click="modal.open()">New room</button>
-      </div>
+
 
     </div>
 </section>
