@@ -6,5 +6,9 @@
 
       {{ room.$value }}
 
+      <div ng-controller='ModalCtrl as modal'>
+          <button type="button" class="btn btn-default" ng-click="modal.open()">New room</button>
+      </div>
+
     </div>
 </section>
