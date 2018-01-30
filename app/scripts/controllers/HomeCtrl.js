@@ -11,10 +11,10 @@
               controllerAs: 'ModalCtrl as modal'
           });
       }
-      this.setCurrentRoom = function() {
+      this.setCurrentRoom = function(room) {
           this.currentRoom = room;
-          this.messages = Message.getRoomID(this.currentRoom.$id);
-          console.log(home.messages)
+          this.messages = Message.getRoomId(this.currentRoom.$id);
+          console.log(this.messages)
       }
   };
 

@@ -1,0 +1,42 @@
+.h1 {
+  display: flex;
+  align-items: center;
+}
+
+/**.chatlog-section {
+  display: flex;
+  align-items: center;
+}**/
+
+.new-chat-room:hover {
+  color: purple;
+  cursor: pointer;
+}
+
+.new-chat-room:hover {
+  color: green;
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+.cancel-chat-room:hover {
+color: red;
+cursor: pointer;
+background-color: darkgray;
+}
+
+.room {
+  display: flex;
+  justify-content: space-between;
+}
+
+.room:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.btn-default:hover {
+  color: blue;
+  cursor: pointer;
+  background-color: darkgray;
+}

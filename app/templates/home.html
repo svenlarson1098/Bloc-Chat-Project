@@ -2,19 +2,21 @@
 
 <section>
     <div ng-controller='ModalCtrl as modal'>
-        <button type="button" class="btn btn-default" ng-click="modal.open()">New room</button>
+        <button type="button" class="btn-default" ng-click="modal.open()">New room</button>
     </div>
 
     <div class="room" ng-click="home.setCurrentRoom(room)" ng-repeat="room in home.rooms">
 
-      {{ room.$value }}</div>
+      {{ room.$value }}
+
+    </div>
 
     <div class="chatlog-section">
     <h4 style ="text-align:center;">{{ home.currentRoom.name }}</h4>
     <div class="messages" ng-repeat="message in home.messages">
-    <div class="username" style="text-align:center;">{{ message.username }}</div>
-    <div class="timestamp" style="text-align:center;">{{ message.timeSent }}</div>
-    <div class="user-message" style="text-align:center;">{{ message.content }}</div>
+        <div class="username" style="text-align:center;">{{ message.username }}</div>
+            <div class="timestamp" style="text-align:center;">{{ message.timeSent }}</div>
+              <div class="user-message" style="text-align:center;">{{ message.content }}</div>
 
       </div>
     </div>
