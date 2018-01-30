@@ -3,14 +3,9 @@
   align-items: center;
 }
 
-/**.chatlog-section {
+.chatlog-section {
   display: flex;
-  align-items: center;
-}**/
-
-.new-chat-room:hover {
-  color: purple;
-  cursor: pointer;
+  flex-direction: column;
 }
 
 .new-chat-room:hover {
@@ -27,7 +22,10 @@ background-color: darkgray;
 
 .room {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  padding: 18px 15px 18px 15px;
+  font-size: 20px;
 }
 
 .room:hover {
