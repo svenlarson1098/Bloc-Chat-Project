@@ -4,6 +4,8 @@
     *@desc sets current user varible to whatever is stored in cookies
     *@type {Object}
     */
+
+    //$cookies.remove('blocChatCurrentUser');
     var currentUser = $cookies.get('blocChatCurrentUser');
 
 /** @desc nothing stored in cookies, the opens username input modal requireBase
@@ -13,9 +15,9 @@
     if (!currentUser || currentUser === '') {
       $uibModal.open({
         templateUrl: '/templates/username.html',
-        controller: 'userNameModalInstanceCtrl as username',
+        controller: 'userNameModalInstanceCtrl',
         animation: true,
-        controllerAs: 'userNameModal',
+        controllerAs: 'usernamer',
         size: 'sm',
         keyboard: false
       });

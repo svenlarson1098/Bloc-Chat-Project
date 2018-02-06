@@ -1,17 +1,15 @@
 
 <div>
-  <div class="modal-title">
-    <h2> Identity Required For Access </h2>
+      <h2 class="modal-title"> Identity Required For Access </h2>
       <div>
       <h4 class="user-entry"> (((Create Username))) </h4>
-    </div>
   </div>
-  <form ng-submit = "setUserName(username)">
+  <form ng-submit="usernamer.setUserName()">
     <div class="form-ctrl input">
-    <input type="text" ng-model="username" placeholder="Enter Username">
+    <input type="text" ng-model="username" placeholder="Enter Username" ng-minlength="1">
+    </div>
+    <div class="btn-default-modaluser">
+      <button ng-click="usernamer.setUserName()"> Submit </button>
     </div>
   </form>
-  <div class="btn-default-modaluser">
-    <button> Submit </button>
-  </div>
 </div>

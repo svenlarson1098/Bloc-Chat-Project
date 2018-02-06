@@ -1,14 +1,15 @@
 (function() {
-  function userNameModalInstanceCtrl($uibModalInstance, $cookies) {
-
-      this.setUserName = function(username) {
-        $cookies.put('blocChatCurrentUser', this.username)
+  function userNameModalInstanceCtrl($uibModalInstance, $cookies, $scope) {
+     $scope.username = "";
+      this.setUserName = function() {
+        console.log($scope.username);
+        $cookies.put('blocChatCurrentUser', $scope.username)
         $uibModalInstance.close();
-        console.log(this.username);
+
       }
   };
 
   angular
     .module('blocChat')
-    .controller('userNameModalInstanceCtrl', ['$uibModalInstance', '$cookies', userNameModalInstanceCtrl]);
+    .controller('userNameModalInstanceCtrl', ['$uibModalInstance', '$cookies','$scope', userNameModalInstanceCtrl]);
 })();
