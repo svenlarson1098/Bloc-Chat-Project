@@ -1,25 +1,39 @@
-<h1>Bloc Chat Home Room</h1>
+  <header>
+<h1 class="project-name">Bloc Chat Home Room</h1>
+  </header>
+
+<main>
+<section>
+    <aside ng-controller='ModalCtrl as modal'>
+        <button type="button" class="btn-default" ng-click="modal.open()">New Room</button>
+          <p ng-repeat="room in home.rooms" ng-click="home.setCurrentRoom(room)"> {{ room.$value }} </p>
+    </aside>
+</section>
 
 <section>
-    <div ng-controller='ModalCtrl as modal'>
-        <button type="button" class="btn-default" ng-click="modal.open()">New room</button>
-    </div>
-
-    <div class="room" ng-click="home.setCurrentRoom(room)" ng-repeat="room in home.rooms">
-
-      {{ room.$value }}
-
-    </div>
-
     <div class="chatlog-section">
-    <h4 style ="text-align:center;">{{ home.currentRoom.name }}</h4>
-    <div class="messages" ng-repeat="message in home.messages">
-        <div class="username" style="text-align:center;">{{ message.username }}</div>
-            <div class="timestamp" style="text-align:center;">{{ message.timeSent }}</div>
-              <div class="user-message" style="text-align:center;">{{ message.content }}</div>
-
-      </div>
-    </div>
+      <div class="currentRoom">
+    <h4 style ="text-align:center;">{{ currentRoom.$value }}</h4>
   </div>
-
 </section>
+
+<table class="message-pane">
+    <tr class="messages" ng-repeat="message in home.messages">
+      <td <class="caputured-username"> {{ message.username }}: </td>
+      <td class="content-textbox"> {{ message.content }} </td>
+      <td class="user-timestamp"> {{ message.timeSent }}. </div>
+    </tr>
+</table>
+    <div class="new-Message">
+      <input type="text" ng-model="message.content" placeholder="Type message here">
+        <button class="msg-send-button" ng-click="home.sendMessage(message)">SEND</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+    <section class="footer">
+        <div> Logged on as: <span style="color:navy; font-weight: bold;"> {{ currentUser }}</span></div>
+    </section>
+</footer>

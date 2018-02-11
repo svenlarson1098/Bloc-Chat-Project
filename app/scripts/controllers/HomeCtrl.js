@@ -1,24 +1,36 @@
 (function() {
-    function HomeCtrl(Room, Message, $uibModal) {
+    function HomeCtrl($scope, Room, $cookies, $uibModal, Message) {
 
-      this.rooms = Room.all;
-      this.currentRoom = null;
+        $scope.rooms = Room.all;
+          $scope.currentRoom = null;
+            $scope.messages = {};
+              $scope.currentUser = $cookies.get('blocChatCurrentUser');
 
-      this.addRoom = function() {
+
+      $scope.addRoom = function() {
           $uibModal.open({
               templateUrl: '/templates/modal.html',
               size: 'sm',
               controllerAs: 'ModalCtrl as modal'
           });
-      }
-      this.setCurrentRoom = function(room) {
-          this.currentRoom = room;
-          this.messages = Message.getRoomId(this.currentRoom.$id);
-          console.log(this.messages)
-      }
-  };
+      };
 
+      $scope.setCurrentRoom = function(room) {
+          $scope.currentRoom = room;
+            $scope.messages = Message.getRoomId(currentRoom.$id);
+          };
+              $scope.send = Message.send;
+
+
+      this.sendMessage = function(message) {
+          message.username = $cookies.get('blocChatCurrentUser');
+            message.roomId = currentRoom.$id;
+              message.send(message);
+              console.log(message);
+      };
+
+  }
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl]);
+        .controller('HomeCtrl', ['$scope', 'Room', '$cookies', '$uibModal', 'Message', HomeCtrl]);
 })();
