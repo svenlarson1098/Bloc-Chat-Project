@@ -3,13 +3,17 @@
         $scope.newRoom = "";
 
         $scope.addRoom = function() {
-          console.log("addRoom?")
+
            $uibModalInstance.close($scope.newRoom);
       };
+
+
         $scope.cancel = function() {
           $uibModalInstance.dismiss('cancel');
+
       };
-};
+      console.log("addRoom?");
+}
 
     angular
       .module('blocChat')

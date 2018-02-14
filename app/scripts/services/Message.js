@@ -5,12 +5,12 @@
       var messages = $firebaseArray(ref);
 
       Message.getRoomId = function (roomId) {
-        console.log(roomId);
-          return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
-      }
+         return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
+      };
 
        Message.send = function(newMessage) {
-          message.$add({
+         console.log(newMessage.roomId);
+          messages.$add({
               username: newMessage.username,
               content: newMessage.content,
               timeSent: Date.now(),

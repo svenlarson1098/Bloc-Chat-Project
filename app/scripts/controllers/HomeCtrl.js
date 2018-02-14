@@ -17,19 +17,18 @@
 
       $scope.setCurrentRoom = function(room) {
           $scope.currentRoom = room;
-            $scope.messages = Message.getRoomId(currentRoom.$id);
+            $scope.messages = Message.getRoomId($scope.currentRoom.$id);
+            //console.log($scope.messages);
           };
-              $scope.send = Message.send;
 
-
-      this.sendMessage = function(message) {
+      $scope.sendMessage = function(message) {
           message.username = $cookies.get('blocChatCurrentUser');
-            message.roomId = currentRoom.$id;
-              message.send(message);
+            message.roomId = $scope.currentRoom.$id;
+              Message.send(message);
               console.log(message);
       };
 
-  }
+    }
     angular
         .module('blocChat')
         .controller('HomeCtrl', ['$scope', 'Room', '$cookies', '$uibModal', 'Message', HomeCtrl]);

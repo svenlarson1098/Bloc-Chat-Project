@@ -1,17 +1,21 @@
 .project-name {
   display: flex;
+  font-family: Impact;
   justify-content: center;
-  background-color: green;
-  color: white;
+  background-color: lightgreen;
+  color: black;
   padding: 18px 15px 25px 15px;
 }
 
 .chatlog-section {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
+  color: Navy;
+  font-size: 125px;
 }
 /*homerooms*/
-.currentRoom {
+currentRoom {
 
 }
 
@@ -40,6 +44,16 @@ background-color: darkgray;
   cursor: pointer;
 }
 
+. {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-content: stretch;
+  height: 500px;
+  width: 600px;
+  padding: 25px;
+  font-style: italic;
+}
+
 .btn-default:hover {
   color: blue;
   cursor: pointer;
@@ -56,11 +70,18 @@ align-content: flex-end;
   background-color: darkgray;
 }
 
+
 .message-pane {
-margin-top: 250px;
-color: lightblue;
-font-weight: bold;
-text-align: center;
+display: flex;
+justify-content: flex-start;
+font-size: 20px;
+background-color: lightgrey;
+height: 550px;
+width: 1200px;
+margin-left: 250px;
+color: blue;
+font-weight: lighter;
+text-align: left;
 }
 .new-Message {
 display: flex;
@@ -72,13 +93,14 @@ height:30px;
 .footer {
   display: flex;
   text-indent: 15px;
-  margin-top: 500px;
+  margin-top: 100px;
   align-content: flex-start;
   height: 230px;
-  background-color: lightgrey;
+  background-color: darkgrey;
   color: black;
+  font-weight: bold;
   border-radius: 35px;
-  width: 1200px;
+  width: 1450px;
   height: 35px;
   border: black;
   }
