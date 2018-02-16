@@ -6,7 +6,7 @@
 <section>
     <aside ng-controller='ModalCtrl as modal'>
         <button type="button" class="btn-default" ng-click="modal.open()">New Room</button>
-          <p ng-repeat="room in rooms" ng-click="setCurrentRoom(room)"> {{ room.$value }} </p>
+            <p ng-repeat="room in rooms" ng-click="currentRoom(room)"> {{ room.$value }} </p>
     </aside>
 </section>
 
@@ -20,7 +20,7 @@
 <table class="message-pane">
     <tr class="messages" ng-repeat="message in messages">
       <td <class="caputured-username"> {{ message.username }}:  </td>
-      <td class="content-textbox"> {{   message.content }} </td>
+      <td class="content-textbox"> {{ message.content }} </td>
       <td class="user-timestamp"> {{ message.timeSent | date:' MMM dd y, hh:mm a'}} </div>
     </tr>
 </table>
