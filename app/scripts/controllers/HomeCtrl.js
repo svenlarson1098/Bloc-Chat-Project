@@ -1,13 +1,13 @@
 (function() {
-    function HomeCtrl($scope, Room, $cookies, $uibModal, Message) {
+    function HomeCtrl(Room, $cookies, $uibModal, Message) {
 
-        $scope.rooms = Room.all;
-          $scope.currentRoom = null;
-            $scope.messages = {};
-              $scope.currentUser = $cookies.get('blocChatCurrentUser');
+        this.rooms = Room.all;
+          this.currentRoom = null;
+            this.messages = {};
+              this.currentUser = $cookies.get('blocChatCurrentUser');
 
 
-      $scope.addRoom = function() {
+      this.addRoom = function() {
           $uibModal.open({
               templateUrl: '/templates/modal.html',
               size: 'sm',
@@ -15,15 +15,15 @@
           });
       };
 
-      $scope.setCurrentRoom = function(room) {
-          $scope.currentRoom = room;
-            $scope.messages = Message.getRoomId($scope.currentRoom.$id);
-            //console.log($scope.messages);
+      this.setCurrentRoom = function(room) {
+          this.currentRoom = room;
+            this.messages = Message.getRoomId(this.currentRoom.$id);
+            console.log(this.messages);
           };
 
-      $scope.sendMessage = function(message) {
+      this.sendMessage = function(message) {
           message.username = $cookies.get('blocChatCurrentUser');
-            message.roomId = $scope.currentRoom.$id;
+            message.roomId = this.currentRoom.$id;
               Message.send(message);
               console.log(message);
       };
@@ -31,5 +31,5 @@
     }
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['$scope', 'Room', '$cookies', '$uibModal', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', '$cookies', '$uibModal', 'Message', HomeCtrl]);
 })();

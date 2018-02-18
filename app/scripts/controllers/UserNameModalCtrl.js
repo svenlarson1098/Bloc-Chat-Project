@@ -1,20 +1,14 @@
 (function() {
-  function userNameModalInstanceCtrl($uibModalInstance, $cookies, $scope) {
-     $scope.username = "";
-      $scope.setUserName = function() {
-      $cookies.put('blocChatCurrentUser', $scope.username);
-        $uibModalInstance.close();
-        //window.location.reload();
-
-
+  function userNameModalInstanceCtrl($uibModalInstance, $cookies) {
+      this.username = "";
+        this.setUserName = function() {
+         $cookies.put('blocChatCurrentUser', this.username);
+          $uibModalInstance.close();
     };
 
-}
+  }
 
   angular
     .module('blocChat')
-    .controller('userNameModalInstanceCtrl', ['$scope', '$uibModalInstance', '$cookies', userNameModalInstanceCtrl]);
+    .controller('userNameModalInstanceCtrl', ['$uibModalInstance', '$cookies', userNameModalInstanceCtrl]);
 })();
-
-//console.log($scope.username);
-//$cookies.put('blocChatCurrentUser', $scope.username);
