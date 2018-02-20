@@ -6,8 +6,9 @@
 <section>
     <aside ng-controller='ModalCtrl as modal'>
         <button type="button" class="btn-default" ng-click="modal.open()">New Room</button>
-            <p ng-repeat="room in rooms" ng-click="currentRoom(room)"> {{ room.$value }} </p>
-    </aside>
+        </aside>
+            <p class="room" ng-repeat="room in home.rooms" ng-click="home.setCurrentRoom(room)"> {{ room.$value }} </p>
+
 </section>
 
 <section>
@@ -18,15 +19,15 @@
 </section>
 
 <table class="message-pane">
-    <tr class="messages" ng-repeat="message in messages">
+    <tr class="messages" ng-repeat="message in home.messages">
       <td <class="caputured-username"> {{ message.username }}:  </td>
       <td class="content-textbox"> {{ message.content }} </td>
       <td class="user-timestamp"> {{ message.timeSent | date:' MMM dd y, hh:mm a'}} </div>
     </tr>
 </table>
     <div class="new-Message">
-      <input type="text" ng-model="message.content" placeholder="Type message here">
-        <button class="msg-send-button" ng-click="sendMessage(message, room)">SEND</button>
+      <input type="text" ng-model="message.content" placeholder="Type message here" ng-minlength="1">
+        <button class="msg-send-button" ng-click="home.sendMessage(message, room)">SEND</button>
     </div>
   </section>
 
@@ -34,6 +35,6 @@
 
 <footer>
     <section class="footer">
-        <div> Logged on as: <span style="color:navy; font-weight: bold;"> {{ currentUser }}</span></div>
+        <div> Logged on as: <span style="color:navy; font-weight: bold;"> {{ home.currentUser }}</span></div>
     </section>
 </footer>

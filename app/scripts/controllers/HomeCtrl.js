@@ -3,17 +3,8 @@
 
         this.rooms = Room.all;
           this.currentRoom = null;
-            this.messages = {};
+              this.messages = {};
               this.currentUser = $cookies.get('blocChatCurrentUser');
-
-
-      this.addRoom = function() {
-          $uibModal.open({
-              templateUrl: '/templates/modal.html',
-              size: 'sm',
-              controllerAs: 'ModalCtrl as modal'
-          });
-      };
 
       this.setCurrentRoom = function(room) {
           this.currentRoom = room;
@@ -26,7 +17,9 @@
             message.roomId = this.currentRoom.$id;
               Message.send(message);
               console.log(message);
-      };
+              message.content = "";
+              message = {};
+        };
 
     }
     angular

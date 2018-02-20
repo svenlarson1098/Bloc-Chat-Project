@@ -4,15 +4,14 @@
 
         this.addRoom = function() {
            $uibModalInstance.close(this.newRoom);
+           console.log(close);
       };
-console.log(close);
 
         this.cancel = function() {
-
           $uibModalInstance.dismiss('cancel');
-
+            console.log("addRoom?");
       };
-      console.log("addRoom?");
+
 }
 
     angular
