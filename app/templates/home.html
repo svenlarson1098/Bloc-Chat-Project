@@ -14,7 +14,8 @@
 <section>
     <div class="chatlog-section">
       <div class="currentRoom">
-    <h4 style ="text-align:center;">{{ currentRoom.$value }}</h4>
+        <h3 class="selected-room">  Current Chatroom: </h3>
+    <h2>{{ home.currentRoom.$value }}</h2>
   </div>
 </section>
 
@@ -35,6 +36,6 @@
 
 <footer>
     <section class="footer">
-        <div> Logged on as: <span style="color:navy; font-weight: bold;"> {{ home.currentUser }}</span></div>
+      <div> Logged on as: <span style="color:navy; font-weight: bold;"> {{ home.currentUser }}</span></div>
     </section>
 </footer>
